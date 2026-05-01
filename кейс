@@ -1,0 +1,34 @@
+import math
+
+def factorial(n):
+    """
+    Вычисляет факториал числа n с использованием math.factorial.
+    Библиотека math оптимизирована для работы с большими числами.
+    """
+    return math.factorial(n)
+
+def main():
+    """
+    Запрашивает у пользователя положительное целое число,
+    вычисляет факториал и выводит результат с обработкой ошибок.
+    """
+    while True:
+        user_input = input("Введите положительное целое число: ")
+
+        try:
+            number = int(user_input)
+        except ValueError:
+            print(f"Ошибка: '{user_input}' не является целым числом. Попробуйте снова.")
+            continue
+
+        if number < 0:
+            print(f"Ошибка: число {number} отрицательное. Введите положительное число.")
+            continue
+
+        # Если все проверки пройдены, вычисляем факториал
+        result = factorial(number)
+        print(f"Факториал числа {number} равен {result}")
+        break
+
+if __name__ == "__main__":
+    main()
